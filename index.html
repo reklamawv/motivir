@@ -5,104 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мотивируйся! Приложение помощи в мотивации.</title>
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffffff;
-            font-family:  "Times New Roman", Times, serif;
-        }
+     body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: "Times New Roman", Times, serif;
+}
 
-        #background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: filter 0.5s;
-        }
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.5s;
+}
 
-        #quote {
-            position: absolute;
-            top: 20%;  
-            z-index: 1;
-            color: #fff;
-            text-shadow: 1px 1px 1px rgba(0, 0, 222, 222); /* Более контрастная тень */
-            text-align: center;
-            width: 80%;
-            margin: 0 auto;
-            font-size: 2rem; /* Авторазмер шрифта */
-            opacity: 1; /* Делаем текст видимым */
-            transition: opacity 0.5s;
-            background-color: rgba(0, 0, 0, 0.6); /* Создаем полупрозрачный фон */
-            border-radius: 25px;
-            padding: 2rem; 
-            font-weight: 600;
-            font-style: normal;
-        }
-        small {
-            font-size: 1.5rem; /* Авторазмер шрифта */
-        }
-        button {
-            background-color: rgba(255, 182, 193, 0.8);
-            color: #4b0082;
-            border: none;
-            padding: 10px 20px; 
-            font-size: 1.2rem;
-            cursor: pointer;
-            border-radius: 15px; 
-            margin: 20px;
-            transition: background-color 0.3s, transform 0.2s; 
-            font-family:    "Times New Roman", Times, serif;
-            font-weight: 600;
-        }
- 
-        button:hover {
-            background-color: #ff69b4;
-            transform: scale(1.05); 
-        }
+#quote {
+    position: absolute;
+    top: 20%;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 222, 222);
+    text-align: center;
+    width: 85%; /* Ширина по отношению к родительскому контейнеру */
+    margin: 0 auto;
+    font-size: 2vw; /* Относительный размер шрифта */
+    opacity: 1;
+    transition: opacity 0.5s;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+    padding: 5%; /* Относительное значение для отступов */
+    font-weight: 600;
+    font-style: normal;
+    max-height: 55%; /* Максимальная высота по отношению к родителю */
+    box-sizing: border-box; /* Включает паддинг в общую ширину и высоту элемента */
+}
 
-        a {
-            color: #fff;
-            font-family:    "Times New Roman", Times, serif;
-            font-weight: 700;
-            text-decoration: underline;
-        }
- 
-        a:hover {
-            text-decoration: none;
-        }
+small {
+    font-size: 2vw; /* Относительный размер шрифта для элементов small */
+}
 
-        #button-container {
-            position: absolute;
-            bottom: 15%; 
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center; 
-            align-items: center;
-        }
-        @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(5px); /* Сдвиг вниз для эффекта появления */
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        }
+button {
+    background-color: rgba(255, 182, 193, 0.8);
+    color: #4b0082;
+    border: none;
+    padding: 2% 4%; /* Относительные значения для отступов */
+    font-size: 1.5vw; /* Относительный размер шрифта для кнопок */
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 2% 1%; /* Относительные значения для маргина */
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 600;
+    margin: 4%;
+}
 
-        .fade-in {
-            animation: fadeIn 2s ease; /* Время анимации и стиль */
-        }
-        
-    </style>
+button:hover {
+    background-color: #ff69b4;
+    transform: scale(1.05);
+}
+
+a {
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#button-container {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease; /* Время анимации и стиль эффектов */
+}
+
+/* Медиазапросы для улучшения адаптивности на меньших экранах */
+@media (max-width: 768px) {
+    #quote {
+        font-size: 5vw; /* Увеличить размер шрифта на меньших экранах */
+    }
+    button {
+        font-size: 4vw; /* Увеличить размер шрифта для кнопок */
+    }
+}
+
+@media (max-width: 480px) {
+    #quote {
+        font-size: 6vw; /* Еще больше увеличить размер шрифта на мобильных устройствах */
+    }
+    button {
+        font-size: 5vw; /* Соответствующие изменения для кнопок */
+    }
+}
+</style>
         <script type="text/javascript">
         // Инициализация VK Mini Apps
         VK.init({
@@ -119,7 +143,7 @@
 </head>
 <body>
     <div id="background"></div>
-    <div id="quote"><small>Привет, это приложение поможет Вам настроиться на нужный лад. Нажимайте кнопку "Мотивируй!", читайте, когда почувствуете, что уже мотивированы нажмите кнопку "Достаточно"</small></div>
+    <div id="quote">Привет, это приложение поможет Вам настроиться на нужный лад. Нажимайте кнопку "Мотивируй!", читайте, когда почувствуете, что уже мотивированы нажмите кнопку "Достаточно"</div>
     <div id="button-container">
         <button id="quoteButton">Мотивируй!</button>
   
@@ -163,7 +187,7 @@
         };
 
         document.getElementById("stopButton").onclick = function() {
-            document.getElementById("quote").innerHTML= "<small>Спасибо за внимание! Если Вам снова потребуется мотивация обязательно возвращяйтесь. Чтобы повысить настроение, посмотрите <a href='https://vk.com/clips/wemom' target='_blank'>наши клипы</a> или заходите почитать  <a href='https://vk.com/wemom' target='_blank'>новости в группе</a></small>"; 
+            document.getElementById("quote").innerHTML= "Спасибо за внимание! Если Вам снова потребуется мотивация обязательно возвращяйтесь. Чтобы повысить настроение, посмотрите <a href='https://vk.com/clips/wemom' target='_blank'>наши клипы</a> или заходите почитать  <a href='https://vk.com/wemom' target='_blank'>новости в группе</a>"; 
             document.getElementById("quote").style.opacity = 1; // Показать прощальное сообщение
             document.getElementById("background").style.filter = "blur(8px) brightness(0.4)"; 
             document.getElementById("button-container").style.display = "none"; // Скрыть кнопки
